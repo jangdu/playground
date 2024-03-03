@@ -4,6 +4,9 @@
 
 @layer base {
   :root {
+    --nav-height: 3.5rem;
+    --min-height: calc(100vh - var(--nav-height));
+
     --background: 0 0% 100%;
     --foreground: 0 0% 3.9%;
     --card: 0 0% 100%;

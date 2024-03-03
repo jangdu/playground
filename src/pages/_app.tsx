@@ -1,8 +1,8 @@
 import { AppProps } from "next/app";
 import { RecoilRoot } from "recoil";
 import { QueryClient, QueryClientProvider } from "react-query";
-import Layout from "@/components/layout/layout";
 import "@/styles/globals.css";
+import Layout from "@/components/layout/Layout";
 
 const queryClient = new QueryClient();
 
