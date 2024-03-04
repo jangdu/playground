@@ -4,6 +4,7 @@ import { Inter as FontSans } from 'next/font/google';
 import { ThemeProvider } from '../theme/ThemeProvider';
 import styled from 'styled-components';
 import { Toaster } from '../ui/toaster';
+import { breakpoints } from '../../../utils/breakpoints';
 
 type LayoutProps = {
   children: ReactNode;
@@ -36,5 +37,7 @@ const LayoutContainer = styled.div`
   min-height: var(--min-height);
   padding: 1rem;
   font-family: var(--font-sans);
+  max-width: ${breakpoints.xl}px;
+  margin: 0 auto;
   transition: color 0.2s;
 `;
