@@ -5,6 +5,7 @@ import { ThemeProvider } from '../theme/ThemeProvider';
 import styled from 'styled-components';
 import { Toaster } from '../ui/toaster';
 import { breakpoints } from '../../../utils/breakpoints';
+// import GlobalStyle from '../theme/GlobalStyle';
 
 type LayoutProps = {
   children: ReactNode;
@@ -24,6 +25,7 @@ export default function Layout({ children }: LayoutProps) {
         enableSystem
         disableTransitionOnChange
       >
+        {/* <GlobalStyle /> */}
         <Header />
         <LayoutContainer>{children}</LayoutContainer>
         <Toaster />
