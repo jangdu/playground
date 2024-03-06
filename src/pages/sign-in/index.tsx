@@ -15,15 +15,24 @@ import {
   Card,
   CardContent,
   CardDescription,
+  CardFooter,
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
 import Link from 'next/link';
 import Warning from '../../../node_modules/next/dist/build/webpack/loaders/postcss-loader/src/Warning.d';
+import { Mail } from 'lucide-react';
 
 const formSchema = z.object({
-  email: z.string().min(2).max(20).email(),
-  password: z.string().min(2).max(20),
+  email: z
+    .string()
+    .min(6, '이메일은 6글자 이상만 입력이 가능합니다.')
+    .max(20, '이메일은 20글자 이하만 입력이 가능합니다.')
+    .email('이메일 형식으로 입력해주세요.'),
+  password: z
+    .string()
+    .min(6, '비밀번호는 6글자 이상만 입력이 가능합니다.')
+    .max(20, '비밀번호는 20글자 이하만 입력이 가능합니다.'),
 });
 
 export default function SignInPage() {
@@ -97,9 +106,19 @@ export default function SignInPage() {
             </form>
           </Form>
         </CardContent>
-        {/* <CardFooter>
-          <p>Card Footer</p>
-        </CardFooter> */}
+        <CardFooter className="flex w-full flex-col gap-2 px-10">
+          <Button className="w-full">
+            <Mail className="mr-2 h-4 w-4" /> Login with Email
+          </Button>
+
+          <Button className="w-full">
+            <Mail className="mr-2 h-4 w-4" /> Login with Email
+          </Button>
+
+          <Button className="w-full">
+            <Mail className="mr-2 h-4 w-4" /> Login with Email
+          </Button>
+        </CardFooter>
       </Card>
     </>
   );
