@@ -2,7 +2,6 @@ import { ReactNode } from 'react';
 import Header from '../header/Header';
 import { Inter as FontSans } from 'next/font/google';
 import { ThemeProvider } from '../theme/ThemeProvider';
-import styled from 'styled-components';
 import { Toaster } from '../ui/toaster';
 import { breakpoints } from '../../../utils/breakpoints';
 // import GlobalStyle from '../theme/GlobalStyle';
@@ -35,11 +34,6 @@ export default function Layout({ children }: LayoutProps) {
   );
 }
 
-const LayoutContainer = styled.div`
-  min-height: var(--min-height);
-  padding: 1rem;
-  font-family: var(--font-sans);
-  max-width: ${breakpoints.xl}px;
-  margin: 0 auto;
-  transition: color 0.2s;
-`;
+const LayoutContainer = ({ children }: { children: ReactNode }) => {
+  return <div className="container min-h-[90vh] py-8">{children}</div>;
+};

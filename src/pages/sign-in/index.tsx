@@ -18,6 +18,8 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
+import Link from 'next/link';
+import Warning from '../../../node_modules/next/dist/build/webpack/loaders/postcss-loader/src/Warning.d';
 
 const formSchema = z.object({
   email: z.string().min(2).max(20).email(),
@@ -76,6 +78,22 @@ export default function SignInPage() {
               <Button className="w-full" type="submit">
                 Submit
               </Button>
+              <div className="flex flex-col justify-center gap-2 border-b-2 py-2">
+                <p className="flex flex-row justify-center gap-2  ">
+                  회원이 아니신가요?{' '}
+                  <Link href="/sign-up">
+                    <p className="text-blue-500 hover:underline">회원가입</p>
+                  </Link>
+                </p>
+                <p className="flex flex-row justify-center gap-2 ">
+                  비밀번호를 잊어버리셨나요?{' '}
+                  <Link href="/sign-up">
+                    <p className="text-blue-500 hover:underline">
+                      비밀번호 찾기
+                    </p>
+                  </Link>
+                </p>
+              </div>
             </form>
           </Form>
         </CardContent>
