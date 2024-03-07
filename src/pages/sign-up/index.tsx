@@ -20,7 +20,6 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import Link from 'next/link';
-import Warning from 'next/dist/build/webpack/loaders/postcss-loader/src/Warning';
 import { Mail } from 'lucide-react';
 
 const formSchema = z.object({
@@ -88,12 +87,10 @@ export default function SignInPage() {
                 Submit
               </Button>
               <div className="flex flex-col justify-center gap-2 border-b-2 py-2">
-                <p className="flex flex-row justify-center gap-2  ">
-                  이미 회원이신가요?{' '}
-                  <Link href="/sign-in">
-                    <p className="text-blue-500 hover:underline">로그인</p>
-                  </Link>
-                </p>
+                <div className="flex flex-row justify-center gap-2  ">
+                  <p>이미 회원이신가요?</p>
+                  <Link href="/sign-in">로그인</Link>
+                </div>
               </div>
             </form>
           </Form>

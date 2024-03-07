@@ -69,16 +69,13 @@ export default function SignInPage() {
                     name={fieldName as keyof typeof formSchema.shape}
                     render={({ field }) => (
                       <FormItem className="space-y-2">
-                        <FormLabel className="my-0 text-black">
+                        <FormLabel className="my-0 text-black dark:text-white">
                           {fieldName}
                         </FormLabel>
                         <FormControl>
                           <Input placeholder={fieldName} {...field} />
                         </FormControl>
-                        {/* <FormDescription>
-                          This is your public display email.
-                        </FormDescription> */}
-                        <FormMessage />
+                        <FormMessage className="dark:text-red-500" />
                       </FormItem>
                     )}
                   />
@@ -88,20 +85,24 @@ export default function SignInPage() {
                 Submit
               </Button>
               <div className="flex flex-col justify-center gap-2 border-b-2 py-2">
-                <p className="flex flex-row justify-center gap-2  ">
-                  회원이 아니신가요?{' '}
-                  <Link href="/sign-up">
-                    <p className="text-blue-500 hover:underline">회원가입</p>
+                <div className="flex flex-row justify-center gap-2  ">
+                  <p>아직 회원이 아니신가요? </p>
+                  <Link
+                    className="text-blue-500 hover:underline"
+                    href="/sign-up"
+                  >
+                    회원가입
                   </Link>
-                </p>
-                <p className="flex flex-row justify-center gap-2 ">
-                  비밀번호를 잊어버리셨나요?{' '}
-                  <Link href="/sign-up">
-                    <p className="text-blue-500 hover:underline">
-                      비밀번호 찾기
-                    </p>
+                </div>
+                <div className="flex flex-row justify-center gap-2  ">
+                  <p>아직 회원이 아니신가요? </p>
+                  <Link
+                    className="text-blue-500 hover:underline"
+                    href="/sign-up"
+                  >
+                    회원가입
                   </Link>
-                </p>
+                </div>
               </div>
             </form>
           </Form>
