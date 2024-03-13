@@ -6,19 +6,23 @@ export interface NavLink {
 
 export const navLinkList: NavLink[] = [
   {
-    text: "Home",
-    href: "/home",
+    text: 'Home',
+    href: '/home',
   },
   {
-    text: "Products",
-    href: "/products",
+    text: 'Products',
+    href: '/products',
   },
   {
-    text: "About",
-    href: "/about",
+    text: 'About',
+    href: '/about',
   },
   {
-    text: "Contact",
-    href: "/contact",
+    text: 'Contact',
+    href: '/contact',
+  },
+  {
+    text: 'Playground',
+    href: '/playground',
   },
 ];
