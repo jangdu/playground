@@ -1,6 +1,7 @@
 import React from 'react';
 
 import dynamic from 'next/dynamic';
+import { useTheme } from 'next-themes';
 
 const Monaco = dynamic(import('react-monaco-editor'), { ssr: false });
 
@@ -8,7 +9,8 @@ export default function MonacoEditor() {
   const [postBody, setPostBody] = React.useState(
     "console.log('hello world!');",
   );
-  // const currentTheme = useRecoilValue(currentThemeState);
+
+  const { theme } = useTheme();
 
   return (
     <div>
@@ -16,7 +18,7 @@ export default function MonacoEditor() {
         width="100%"
         height="600"
         language="javascript"
-        // theme={currentTheme === ThemeFlag.DARK ? 'vs-dark' : 'vs'}
+        theme={theme === 'dark' ? 'vs-dark' : 'vs-light'}
         value={postBody}
         options={{
           minimap: {

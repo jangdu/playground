@@ -1,20 +1,13 @@
-// /** @type {import('next').NextConfig} */
-
-// const nextConfig = {
-//   reactStrictMode: true,
-// };
-
-// export default nextConfig;
-
+// next.config.js
 const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin');
 const withTM = require('next-transpile-modules')(['monaco-editor']);
 
-const nextConfig = withTM({
-  webpack: config => {
+module.exports = withTM({
+  webpack: (config) => {
     const rule = config.module.rules
-      .find(rule => rule.oneOf)
+      .find((rule) => rule.oneOf)
       .oneOf.find(
-        r => r.issuer && r.issuer.include && r.issuer.include.includes('_app'),
+        (r) => r.issuer && r.issuer.include && r.issuer.include.includes('_app'),
       );
     if (rule) {
       rule.issuer.include = [
@@ -43,5 +36,3 @@ const nextConfig = withTM({
     return config;
   },
 });
-
-export default nextConfig;
