@@ -1,38 +1,7 @@
-// next.config.js
-const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin');
-const withTM = require('next-transpile-modules')(['monaco-editor']);
+/** @type {import('next').NextConfig} */
 
-module.exports = withTM({
-  webpack: (config) => {
-    const rule = config.module.rules
-      .find((rule) => rule.oneOf)
-      .oneOf.find(
-        (r) => r.issuer && r.issuer.include && r.issuer.include.includes('_app'),
-      );
-    if (rule) {
-      rule.issuer.include = [
-        rule.issuer.include,
-        /[\\/]node_modules[\\/]monaco-editor[\\/]/,
-      ];
-    }
+const nextConfig = {
+  reactStrictMode: true,
+};
 
-    config.plugins.push(
-      new MonacoWebpackPlugin({
-        languages: [
-          'json',
-          'markdown',
-          'css',
-          'typescript',
-          'javascript',
-          'html',
-          'graphql',
-          'python',
-          'scss',
-          'yaml',
-        ],
-        filename: 'static/[name].worker.js',
-      }),
-    );
-    return config;
-  },
-});
+module.exports = nextConfig;
