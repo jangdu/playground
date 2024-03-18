@@ -33,5 +33,5 @@ export default function Layout({ children }: LayoutProps) {
 }
 
 const LayoutContainer = ({ children }: { children: ReactNode }) => {
-  return <div className="container min-h-[90vh] py-8">{children}</div>;
+  return <div className="container h-full min-h-[90vh] py-8">{children}</div>;
 };
